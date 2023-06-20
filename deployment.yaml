@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DeploymentConfig
+metadata:
+  name: my-app
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: <registry>/<project>/my-openshift-app
+        ports:
+        - containerPort: 3000
